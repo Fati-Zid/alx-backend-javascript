@@ -1,41 +1,64 @@
+/* eslint-disable no-underscore-dangle */
+// Implementing the HolbertonCourse class
 export default class HolbertonCourse {
+  // Constructor to initialize the attributes
   constructor(name, length, students) {
-    if (typeof name != 'string') ? throw new Error('name must be string') : this.name = _name;
-    if (typeof (length) != 'number') ? throw new Error('name must be number') : this.length = _length;
+    // Type validation for name
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a string');
+    }
+    // Type validation for length
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
     // Type validation for students
-    if (!Array.isArray(students) || !students.every(student => typeof student === 'string')) ? throw new Error('students must be an array of strings') : this.students = _students;
+    if (!Array.isArray(students) || !students.every((student) => typeof student === 'string')) {
+      throw new TypeError('Students must be an array of strings');
+    }
+
+    // Storing attributes with underscore prefix
+    // eslint-disable-next-line no-underscore-dangle
+    this._name = name;
+    this._length = length;
+    this._students = students;
   }
-  // Getter & Setter:
-    // name:
-    get name() { 
-      return this._name;
+
+  // Getter for name
+  get name() {
+    return this._name;
+  }
+
+  // Setter for name with type validation
+  set name(newName) {
+    if (typeof newName !== 'string') {
+      throw new TypeError('Name must be a string');
     }
-    set name(value) {
-      if (typeof value != 'string') {
-        throw new Error('name must be string');
-        }
-      this._name = value;
-    }
-    
-  // Length:
+    this._name = newName;
+  }
+
+  // Getter for length
   get length() {
     return this._length;
   }
-  set length(value){
-    if (typeof value != 'number') {
-      throw new Error('length must be number');
-      }
-    this._length = value;
+
+  // Setter for length with type validation
+  set length(newLength) {
+    if (typeof newLength !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
+    this._length = newLength;
   }
 
-  // Students:
+  // Getter for students
   get students() {
     return this._students;
   }
-  set students(arrayValue){
-    if (!Array.isArray(this.students) || this.students.every(typeof student === 'string'))
-      throw new Error('students must be an array of strings');
-    this._students = arrayValue;
-  }
-  }
 
+  // Setter for students with type validation
+  set students(newStudents) {
+    if (!Array.isArray(newStudents) || !newStudents.every((student) => typeof student === 'string')) {
+      throw new TypeError('Students must be an array of strings');
+    }
+    this._students = newStudents;
+  }
+}
