@@ -15,9 +15,4 @@ class Car {
   }
 }
 
-// Testing the Car class
-const myCar = new Car('Toyota', 'Gasoline', 'Blue');
-const clonedCar = myCar.cloneCar();
-console.log(clonedCar); // Output: Car { _brand: 'Toyota', _motor: 'Gasoline', _color: 'Blue' }
-
 export default Car;
