@@ -1,4 +1,5 @@
-function getStudentIdsSum(students) {
-  return students.reduce((student) => student.id);
-}
+/* eslint-disable implicit-arrow-linebreak */
+const getStudentIdsSum = (students) =>
+  students.reduce((prevVal, cur) => prevVal + cur.id, 0);
+
 export default getStudentIdsSum;
